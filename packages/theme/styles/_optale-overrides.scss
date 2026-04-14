@@ -1,0 +1,47 @@
+//
+// Optale Brand Overrides
+// Brand colors: Amber #FA9E00, deep dark #161719, near-black #0E0F10
+// Aesthetic: monochrome dark with amber accent (Linear/Raycast inspired)
+//
+
+// Override primary button colors to Optale amber
+* {
+  --primary-button-default: #FA9E00;
+  --primary-button-hovered: #FFB733;
+  --primary-button-pressed: #E08E00;
+  --primary-button-focused: #FA9E00;
+  --primary-button-color: #000;
+  --primary-button-content-color: rgba(0, 0, 0, .9);
+  --primary-button-outline: #FA9E00;
+  --primary-button-transparent: rgba(250, 158, 0, 0.2);
+}
+
+// Dark theme overrides (Optale is dark-first)
+.theme-dark {
+  // Links in amber instead of blue
+  --theme-link-color: #FA9E00;
+
+  // Attention/highlight buttons in amber instead of purple
+  --theme-button-attention-gradient: linear-gradient(135deg, #E08E00, #FA9E00);
+  --theme-button-attention-border: #FA9E00;
+  --theme-button-attention-hover-gradient: linear-gradient(135deg, #FFB733, #FA9E00);
+  --theme-button-attention-hover-border: #FFB733;
+  --theme-button-attention-active-gradient: linear-gradient(135deg, #CC7E00, #E08E00);
+  --theme-button-attention-hover-shadow: 0 8px 24px rgba(250, 158, 0, 0.3);
+  --theme-button-attention-active-shadow: 0 4px 12px rgba(250, 158, 0, 0.4);
+  --theme-button-attention-focus-shadow: 0 0 0 3px rgba(250, 158, 0, 0.2);
+
+  // Sidebar: Linear/Raycast aesthetic
+  --theme-navpanel-color: #111214;
+  --theme-navpanel-hovered: rgba(255, 255, 255, .06);
+  --theme-navpanel-selected: rgba(250, 158, 0, .12);
+  --theme-navpanel-divider: rgba(255, 255, 255, .06);
+  --theme-navpanel-border: rgba(255, 255, 255, .06);
+  --theme-navpanel-icons-color: rgba(255, 255, 255, .5);
+}
+
+// Light theme overrides
+.theme-light {
+  --primary-button-color: #fff;
+  --primary-button-content-color: rgba(255, 255, 255, .9);
+}
