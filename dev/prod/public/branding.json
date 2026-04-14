@@ -1,6 +1,6 @@
 {
   "huly.local:8080": {
-    "title": "Huly",
+    "title": "Optale",
     "languages": "en,ru,pt,pt-br,es,zh,fr,de,ja,tr",
     "defaultLanguage": "en",
     "defaultApplication": "tracker",
@@ -10,26 +10,22 @@
     "links": [
       {
         "rel": "manifest",
-        "href": "/huly/site.webmanifest"
+        "href": "/optale/site.webmanifest"
       },
       {
         "rel": "icon",
-        "href": "/huly/favicon.svg",
+        "href": "/optale/favicon.svg",
         "type": "image/svg+xml"
       },
       {
         "rel": "shortcut icon",
-        "href": "/huly/favicon.ico",
+        "href": "/optale/favicon.svg",
         "sizes": "any"
-      },
-      {
-        "rel": "apple-touch-icon",
-        "href": "/huly/apple-touch-icon.png"
       }
     ]
   },
   "huly.local:8087": {
-    "title": "Huly",
+    "title": "Optale",
     "languages": "en,ru,pt,pt-br,es,zh,fr,de,ja,tr",
     "defaultLanguage": "en",
     "defaultApplication": "tracker",
@@ -39,21 +35,17 @@
     "links": [
       {
         "rel": "manifest",
-        "href": "/huly/site.webmanifest"
+        "href": "/optale/site.webmanifest"
       },
       {
         "rel": "icon",
-        "href": "/huly/favicon.svg",
+        "href": "/optale/favicon.svg",
         "type": "image/svg+xml"
       },
       {
         "rel": "shortcut icon",
-        "href": "/huly/favicon.ico",
+        "href": "/optale/favicon.svg",
         "sizes": "any"
-      },
-      {
-        "rel": "apple-touch-icon",
-        "href": "/huly/apple-touch-icon.png"
       }
     ]
   },
