@@ -1,0 +1,15 @@
+{
+  "name": "Optale",
+  "short_name": "Optale",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#161719",
+  "theme_color": "#FA9E00",
+  "icons": [
+    {
+      "src": "/optale/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
