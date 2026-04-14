@@ -45,7 +45,7 @@ export interface SidebarState {
 }
 
 export const defaultSidebarState: SidebarState = {
-  variant: SidebarVariant.MINI,
+  variant: SidebarVariant.EXPANDED,
   float: false,
   widgetsState: new Map()
 }
@@ -58,17 +58,17 @@ locationWorkspaceStore.subscribe((workspace) => {
 
 sidebarStore.subscribe(setSidebarStateToLocalStorage)
 
-export function syncSidebarState (): void {
+export function syncSidebarState(): void {
   const workspace = get(locationWorkspaceStore)
   sidebarStore.set(getSidebarStateFromLocalStorage(workspace ?? ''))
 }
-function getSideBarLocalStorageKey (workspace: string): string | undefined {
+function getSideBarLocalStorageKey(workspace: string): string | undefined {
   const me = getCurrentAccount()
   if (me == null || workspace === '') return undefined
   return `workbench.${workspace}.${me.uuid}.sidebar.state.`
 }
 
-function getSidebarStateFromLocalStorage (workspace: string): SidebarState {
+function getSidebarStateFromLocalStorage(workspace: string): SidebarState {
   const sidebarStateLocalStorageKey = getSideBarLocalStorageKey(workspace)
   if (sidebarStateLocalStorageKey === undefined) return defaultSidebarState
   const state = window.localStorage.getItem(sidebarStateLocalStorageKey)
@@ -93,7 +93,7 @@ function getSidebarStateFromLocalStorage (workspace: string): SidebarState {
   }
 }
 
-function setSidebarStateToLocalStorage (state: SidebarState): void {
+function setSidebarStateToLocalStorage(state: SidebarState): void {
   const workspace = get(locationWorkspaceStore)
   if (workspace == null || workspace === '') return
 
@@ -110,10 +110,10 @@ function setSidebarStateToLocalStorage (state: SidebarState): void {
   )
 }
 
-export function openWidget (
+export function openWidget(
   widget: Widget,
   data?: Record<string, any>,
-  params?: { active: boolean, openedByUser: boolean },
+  params?: { active: boolean; openedByUser: boolean },
   tabs?: WidgetTab[]
 ): void {
   const state = get(sidebarStore)
@@ -139,7 +139,7 @@ export function openWidget (
   })
 }
 
-export function closeWidget (widget: Ref<Widget>): void {
+export function closeWidget(widget: Ref<Widget>): void {
   const state = get(sidebarStore)
   const { widgetsState } = state
 
@@ -164,7 +164,7 @@ export function closeWidget (widget: Ref<Widget>): void {
   }
 }
 
-export async function closeWidgetTab (widget: Widget, tab: string): Promise<void> {
+export async function closeWidgetTab(widget: Widget, tab: string): Promise<void> {
   const state = get(sidebarStore)
   const { widgetsState } = state
   const widgetState = widgetsState.get(widget._id)
@@ -210,7 +210,7 @@ export async function closeWidgetTab (widget: Widget, tab: string): Promise<void
   })
 }
 
-export function openWidgetTab (widget: Ref<Widget>, tab: string): void {
+export function openWidgetTab(widget: Ref<Widget>, tab: string): void {
   const state = get(sidebarStore)
   const { widgetsState } = state
   const widgetState = widgetsState.get(widget)
@@ -230,7 +230,7 @@ export function openWidgetTab (widget: Ref<Widget>, tab: string): void {
   })
 }
 
-export function createWidgetTab (widget: Widget, tab: WidgetTab, newTab = false): void {
+export function createWidgetTab(widget: Widget, tab: WidgetTab, newTab = false): void {
   const state = get(sidebarStore)
   const { widgetsState } = state
   const widgetState = widgetsState.get(widget._id)
@@ -267,7 +267,7 @@ export function createWidgetTab (widget: Widget, tab: WidgetTab, newTab = false)
   })
 }
 
-export function pinWidgetTab (widget: Widget, tabId: string): void {
+export function pinWidgetTab(widget: Widget, tabId: string): void {
   const state = get(sidebarStore)
   const { widgetsState } = state
   const widgetState = widgetsState.get(widget._id)
@@ -286,7 +286,7 @@ export function pinWidgetTab (widget: Widget, tabId: string): void {
   })
 }
 
-export function unpinWidgetTab (widget: Widget, tabId: string): void {
+export function unpinWidgetTab(widget: Widget, tabId: string): void {
   const state = get(sidebarStore)
   const { widgetsState } = state
   const widgetState = widgetsState.get(widget._id)
@@ -314,7 +314,7 @@ export function unpinWidgetTab (widget: Widget, tabId: string): void {
   })
 }
 
-function isDescendant (parent: HTMLElement, child: HTMLElement): boolean {
+function isDescendant(parent: HTMLElement, child: HTMLElement): boolean {
   let node = child.parentNode
   while (node != null) {
     if (node === parent) {
@@ -325,7 +325,7 @@ function isDescendant (parent: HTMLElement, child: HTMLElement): boolean {
   return false
 }
 
-export function isElementFromSidebar (element: HTMLElement): boolean {
+export function isElementFromSidebar(element: HTMLElement): boolean {
   const sidebarElement = document.getElementById('sidebar')
   if (sidebarElement == null) {
     return false
@@ -334,7 +334,7 @@ export function isElementFromSidebar (element: HTMLElement): boolean {
   return isDescendant(sidebarElement, element)
 }
 
-export function minimizeSidebar (closedByUser = false): void {
+export function minimizeSidebar(closedByUser = false): void {
   const state = get(sidebarStore)
   const { widget, widgetsState } = state
   const widgetState = widget == null ? undefined : widgetsState.get(widget)
@@ -346,7 +346,7 @@ export function minimizeSidebar (closedByUser = false): void {
   sidebarStore.set({ ...state, ...widgetsState, widget: undefined, variant: SidebarVariant.MINI })
 }
 
-export function updateTabData (widget: Ref<Widget>, tabId: string, data: Record<string, any>): void {
+export function updateTabData(widget: Ref<Widget>, tabId: string, data: Record<string, any>): void {
   const state = get(sidebarStore)
   const { widgetsState } = state
   const widgetState = widgetsState.get(widget)
@@ -363,7 +363,7 @@ export function updateTabData (widget: Ref<Widget>, tabId: string, data: Record<
   })
 }
 
-export function updateWidgetState (widget: Ref<Widget>, newState: Partial<WidgetState>): void {
+export function updateWidgetState(widget: Ref<Widget>, newState: Partial<WidgetState>): void {
   const state = get(sidebarStore)
   const { widgetsState } = state
   const widgetState = widgetsState.get(widget)
@@ -378,7 +378,7 @@ export function updateWidgetState (widget: Ref<Widget>, newState: Partial<Widget
   })
 }
 
-export function getSidebarObject (): Partial<Pick<Doc, '_id' | '_class'>> {
+export function getSidebarObject(): Partial<Pick<Doc, '_id' | '_class'>> {
   const state = get(sidebarStore)
   if (state.variant !== SidebarVariant.EXPANDED || state.widget == null) {
     return {}
