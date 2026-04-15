@@ -105,7 +105,7 @@ export class TWorkbenchTab extends TPreference implements WorkbenchTab {
   isPinned!: boolean
 }
 
-export function createModel (builder: Builder): void {
+export function createModel(builder: Builder): void {
   builder.createModel(
     TApplication,
     TSpaceView,
@@ -207,11 +207,24 @@ export function createModel (builder: Builder): void {
     },
     workbench.action.CloseCurrentTab
   )
+
+  // Optale Copilot widget
+  builder.createDoc(
+    workbench.class.Widget,
+    core.space.Model,
+    {
+      label: workbench.string.Copilot,
+      type: WidgetType.Fixed,
+      icon: view.icon.Bubble,
+      component: workbench.component.CopilotPanel
+    },
+    workbench.ids.CopilotWidget
+  )
 }
 
 export default workbench
 
-export function createNavigateAction (
+export function createNavigateAction(
   builder: Builder,
   key: KeyBinding,
   label: IntlString,

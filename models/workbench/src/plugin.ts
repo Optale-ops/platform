@@ -23,7 +23,8 @@ import type { ActionCategory, ViewActionAvailabilityFunction } from '@hcengineer
 export default mergeIds(workbenchId, workbench, {
   component: {
     ApplicationPresenter: '' as AnyComponent,
-    ServerManager: '' as AnyComponent
+    ServerManager: '' as AnyComponent,
+    CopilotPanel: '' as AnyComponent
   },
   string: {
     Application: '' as IntlString,
