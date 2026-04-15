@@ -20,17 +20,17 @@ import { createAction } from '@hcengineering/model-view'
 import core, { TClass, TDoc } from '@hcengineering/model-core'
 import { type Asset, getEmbeddedLabel, type IntlString, type Resource } from '@hcengineering/platform'
 import view, { type KeyBinding } from '@hcengineering/view'
-import type {
-  Application,
-  ApplicationNavModel,
-  HiddenApplication,
-  SpaceView,
-  ViewConfiguration,
-  Widget,
-  WidgetPreference,
-  WidgetTab,
+import {
+  type Application,
+  type ApplicationNavModel,
+  type HiddenApplication,
+  type SpaceView,
+  type ViewConfiguration,
+  type Widget,
+  type WidgetPreference,
+  type WidgetTab,
   WidgetType,
-  WorkbenchTab
+  type WorkbenchTab
 } from '@hcengineering/workbench'
 import { type AnyComponent } from '@hcengineering/ui/src/types'
 import presentation from '@hcengineering/model-presentation'
